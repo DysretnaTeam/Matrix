@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix</title>
+    <link href="../static/home.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+<div class="nav">
+    <ul>
+        <li><a href="{{ url_for('home') }}" class="checked"><b>M</b>atrix</a></li>
+        <li><a href="{{ url_for('m_type') }}">Type</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Closures</a>
+            <div class="dropdown-content">
+                <a href="{{ url_for('m_reflecsive') }}">Reflexive</a>
+                <a href="{{ url_for('m_symmetric') }}">Symmetric</a>
+                <a href="{{ url_for('m_transitive') }}">Transitive</a>
+                <a href="{{ url_for('m_equivalent') }}">Equivalent</a>
+            </div>
+         </li>
+        <li><a href="{{ url_for('m_multiplication') }}">Multiplication</a></li>
+    </ul>
+</div>
+<div class="main">
+    <p>
+        <h2>Welcome to Matrix.com!</h2>
+        <br><h3>On this web-site You can:</h3><br>
+        - find relation types of matrix(reflexive/irreflexive,symmetric...);<br>
+        - make different types of closures on matrix;<br>
+        - find a product of matrixes;<br><br>
+        This web-site works with zero-one matrixes<br>
+        <h3>Hope this web-site will be useful for You!</h3>
+    </p>
+</div>
+</body>
+</html>
