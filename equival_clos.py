@@ -15,6 +15,7 @@ def equiv_rel_clos(matrix):
     >>> equiv_rel_clos([[1,1],[0,1]])
     [[1,1], [1,1]]
     '''
+    i = 0
     while not matrix_relations.is_equiv_rel(matrix):
         if not matrix_relations.is_reflexive(matrix):
             matrix = Closures.Reflexive_closure(matrix)
@@ -23,4 +24,10 @@ def equiv_rel_clos(matrix):
         elif not matrix_relations.is_transitive:
             matrix = Closures.Transitive_closure(matrix)
             
+        if i == 10000:
+            return ["Sorry, it's impossible to make realation of equivalence"]
+            
+        i += 1
+            
     return matrix
+print(equiv_rel_clos([[0,0,0],[1,0,1],[0,0,1]]))
