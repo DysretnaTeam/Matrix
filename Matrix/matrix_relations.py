@@ -104,8 +104,8 @@ def is_transitive(matrix):
     Matrix is transitive if the matrix is subset of product of this matrix with itself
     Returns whether relation shown by matrix is transitive
 
-    >>> isTransitive([[0,1],[1,0]])
-    >>> isTransitive([[1,1],[1,0]])
+    >>> is_transitive([[0,1],[1,0]])
+    >>> is_transitive([[1,1],[1,0]])
     transitive
     '''
     from matrix_multiply import matrix_multiply

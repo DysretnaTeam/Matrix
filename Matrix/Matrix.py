@@ -35,16 +35,16 @@ def m_type():
                                result_relations=Markup(result_relations))
 
 
-@app.route("/reflecsive", methods=["GET", "POST"])
+@app.route("/reflexive", methods=["GET", "POST"])
 def m_reflecsive():
     if request.method == "GET":
-        return render_template("closures.html", title="Reflecsive closure")
+        return render_template("closures.html", title="Reflexive closure")
     elif request.method == "POST":
         matrix = matrix_result.read_matrix(0)
         input_matrix_table = matrix_result.matrix_table(matrix)
         new_matrix = matrix_closures.reflexive_closure(matrix)
         result_matrix = matrix_result.matrix_table(new_matrix)
-        return render_template("closures.html", title="Reflecsive closure",
+        return render_template("closures.html", title="Reflexive closure",
                                inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix))
 
 
