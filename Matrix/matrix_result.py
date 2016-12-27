@@ -1,3 +1,7 @@
+# Reads matrix from checkboxes form and makes table of matrix or list with relations
+# created: 26.12.2016
+
+
 from flask import request
 
 
@@ -28,6 +32,8 @@ def read_matrix(box):
 def relations_table(relations):
     """
     list(str) -> str
+
+    Creates html table of matrix
     """
     result = "<table id='relation_result'>"
     for relation in relations:
@@ -39,6 +45,8 @@ def relations_table(relations):
 def matrix_table(matrix):
     """
     list(list(int)) -> str
+
+    Creates html table of list with relations
     """
     result ="<table id='matrix_result'>"
     for line in range(len(matrix)):

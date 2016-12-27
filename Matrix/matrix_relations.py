@@ -1,5 +1,4 @@
 # Finds all matrix relations
-# authors: Vasyl Borsuk, Ivan Kosarevych
 # created: 22.12.2016
 
 
@@ -119,28 +118,32 @@ def is_transitive(matrix):
     return 'transitive'
 
 
-def is_equiv_rel(matrix):
+def is_equivalent(matrix):
     '''
     (list(list)) -> str or None
+
     Checks if the relation shown by matrix is equivalence relation
     Equivalence relation is reflexive, symmetric and transitive
-    >>> is_equiv_rel([[1,1],[1,1]])
+
+    >>> is_equivalent([[1,1],[1,1]])
     'equivalence relation'
-    >>> is_equiv_rel([[1,0,1],[1,1,1],[0,1,1]])
+    >>> is_equivalent([[1,0,1],[1,1,1],[0,1,1]])
     '''
     if is_reflexive(matrix) and is_symmetric(matrix) and is_transitive(matrix):
         return 'equivalence relation'
     return
 
 
-def is_rel_of_part_ord(matrix):
+def is_part_ord(matrix):
     '''
     (list(list)) -> str or None
+
     Checks if the relation shown by matrix is relation of part order
     Equivalence relation is reflexive, antisymmetric and transitive
-    >>> is_rel_of_part_ord([[1,1],[0,1]])
+
+    >>> is_part_ord([[1,1],[0,1]])
     'relation of part order'
-    >>> is_rel_of_part_ord([[1,1,1],[1,0,1],[0,1,1]])
+    >>> is_part_ord([[1,1,1],[1,0,1],[0,1,1]])
     '''
     if is_reflexive(matrix) and is_antisymmetric(matrix) and is_transitive(matrix):
         return 'relation of part order'
@@ -150,16 +153,20 @@ def is_rel_of_part_ord(matrix):
 def find_relations(matrix):
     """
     list(list(int)) -> list(str)
+
     Finds all matrix relations
+
     >>> find_relations([[1,1,0],[0,1,1],[0,0,1]])
     ['reflexive', 'antisymmetric', 'transitive', 'relation of part order']
     >>> find_relations([[0,1,0,0],[0,0,1,0],[0,0,0,1],[0,0,0,0]])
     ['irreflexive', 'antisymmetric', 'asymmetric']
     """
-    relations = ["reflexive", "irreflexive", "symmetric", "antisymmetric", "asymmetric", "transitive","equiv_rel", "rel_of_part_ord"]
+    relations = ["reflexive", "irreflexive", "symmetric", "antisymmetric", "asymmetric", "transitive","equivalent", "part_ord"]
     result = []
     for relation in relations:
         f_relation = eval("is_" + relation + "(matrix)")
         if f_relation:
             result.append(f_relation)
+    if not result:
+        return ["Sorry, this matrix has no type"]
     return result

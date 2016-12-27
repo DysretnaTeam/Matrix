@@ -1,5 +1,4 @@
 # Makes a reflexive, symmetric and transitive closures of matrix
-# authors: Vasyl Borsuk, Ivan Kosarevych
 # created: 22.12.2016
 
 
@@ -69,13 +68,13 @@ def equivalent_closure(matrix):
     Makes from given relation shown by matrix equivalence relation shown by matrix
     Returns this matrix in list of lists
 
-    >>> equivalent_clos([[1,1],[0,1]])
+    >>> equivalent_closure([[1,1],[0,1]])
     [[1,1], [1,1]]
     '''
     import matrix_relations
 
     i = 0
-    while not matrix_relations.is_equiv_rel(matrix):
+    while not matrix_relations.is_equivalent(matrix):
         if not matrix_relations.is_reflexive(matrix):
             matrix = reflexive_closure(matrix)
         elif not matrix_relations.is_symmetric(matrix):

@@ -33,12 +33,24 @@
 </div>
 <div class="main">
     <h2>Relation type</h2>
-    <form method="POST">
-        Choose matrix size:
-        <select name='size' id ='sel'></select>
-        <div id ='matrix_form'></div>
-    </form>
-    {{ result }}
+    {% if not result_relations %}
+        <form method="POST">
+            Choose matrix size:
+            <select name='size' id ='sel'></select>
+            <div id ='matrix_form'></div>
+        </form>
+    {% else %}
+        <table>
+        <tr>
+            <th width="300px">Your matrix:</th>
+            <th width="300px">Result:</th>
+        </tr>
+        <tr>
+            <td>{{ inputed_matrix }}</td>
+            <td>{{ result_relations }}</td>
+        </tr>
+        </table>
+    {% endif %}
 </div>
 </body>
 </html>

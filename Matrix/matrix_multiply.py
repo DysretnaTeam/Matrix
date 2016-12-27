@@ -1,5 +1,4 @@
 # Makes matrix multiplication
-# authors: Vasyl Borsuk, Ivan Kosarevych
 # created: 22.12.2016
 
 
