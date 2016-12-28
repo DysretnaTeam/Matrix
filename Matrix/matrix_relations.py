@@ -95,24 +95,20 @@ def is_asymmetric(matrix):
     return "asymmetric"
 
 
-
-
 def is_transitive(matrix):
     '''
     (list(list)) -> str or None
-
     Matrix is transitive if the matrix is subset of product of this matrix with itself
     Returns whether relation shown by matrix is transitive
-
     >>> is_transitive([[0,1],[1,0]])
     >>> is_transitive([[1,1],[1,1]])
     transitive
     '''
     from matrix_closures import transitive_closure
     from copy import deepcopy
-    
-    matr_copy = deepcopy(matrix)
-    if transitive_closure(matr_copy) == matrix:
+
+    matrix_copy = deepcopy(matrix)
+    if transitive_closure(matrix_copy) == matrix:
         return 'transitive'
     return
 

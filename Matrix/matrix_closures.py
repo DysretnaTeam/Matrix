@@ -25,6 +25,7 @@ def symmetric_closure(matrix):
 
     Makes symmetric closure of relation shown by matrix
     Returns updated matrix in list of lists
+
     >>> symmetric_closure([[0,1,1],[0,1,1],[0,0,1]])
     [[0,1,1],[1,1,1],[1,1,1]]
     '''
@@ -83,7 +84,7 @@ def equivalent_closure(matrix):
             matrix = transitive_closure(matrix)
 
         if i == 10000:
-            return ["Sorry, it's impossible to make realation of equivalence"]
+            return [["Sorry, it's impossible to make realation of equivalence"]]
 
         i += 1
 
