@@ -1,38 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Matrix</title>
-    <link href="../static/home.css" type="text/css" rel="stylesheet">
-    <script type="text/javascript" src="/static/jquery.js"></script>
-    <script type="text/javascript" src="/static/my_trans.js"></script>
-</head>
-<body>
-<script>
-    $(document).ready(function(){
-        create_list()
-        $('#matrix_form').html(create_matrix(1))
-        change_matrix_size();
-    })
-</script>
-<div class="nav">
-    <ul>
-        <li><a href="{{ url_for('home') }}"><b>M</b>atrix</a></li>
-        <li><a href="{{ url_for('m_type') }}" class="checked">Type</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Closures</a>
-            <div class="dropdown-content">
-                <a href="{{ url_for('m_reflecsive') }}">Reflexive</a>
-                <a href="{{ url_for('m_symmetric') }}">Symmetric</a>
-                <a href="{{ url_for('m_transitive') }}">Transitive</a>
-                <a href="{{ url_for('m_equivalent') }}">Equivalent</a>
-            </div>
-         </li>
-        <li><a href="{{ url_for('m_multiplication') }}">Multiplication</a></li>
-    </ul>
-</div>
-<div class="main">
-    <h2>Relation type</h2>
+<!-- extend base layout -->
+{% extends 'base1.html' %}
+
+{% block content3 %}
+    <h2>{{ title }}</h2>
     {% if not result_relations %}
         <form method="POST">
             Choose matrix size:
@@ -42,8 +12,8 @@
     {% else %}
         <table>
         <tr>
-            <th width="300px">Your matrix:</th>
-            <th width="300px">Result:</th>
+            <th width="300px">Your matrix</th>
+            <th width="300px">Result</th>
         </tr>
         <tr>
             <td>{{ inputed_matrix }}</td>
@@ -51,6 +21,4 @@
         </tr>
         </table>
     {% endif %}
-</div>
-</body>
-</html>
+{% endblock %}

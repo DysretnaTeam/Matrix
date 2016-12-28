@@ -1,0 +1,17 @@
+<!-- extend base layout -->
+{% extends 'base.html' %}
+
+{% block content1 %}
+    <script type="text/javascript" src="/static/jquery.js"></script>
+    <script type="text/javascript" src="/static/my_trans.js"></script>
+{% endblock %}
+{% block content2 %}
+<script>
+    $(document).ready(function(){
+        create_list()
+        $('#matrix_form').html(create_matrix(1))
+        change_matrix_size();
+    })
+</script>
+{% endblock %}
+{% block content3 %}{% endblock %}

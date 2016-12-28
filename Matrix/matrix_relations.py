@@ -105,17 +105,16 @@ def is_transitive(matrix):
     Returns whether relation shown by matrix is transitive
 
     >>> is_transitive([[0,1],[1,0]])
-    >>> is_transitive([[1,1],[1,0]])
+    >>> is_transitive([[1,1],[1,1]])
     transitive
     '''
-    from matrix_multiply import matrix_multiply
-
-    matrix_composition = matrix_multiply(matrix, matrix)
-    for i in range(len(matrix)):
-        for j in range(len(matrix)):
-            if matrix[i][j] == 1 and matrix_composition[i][j] != 1:
-                return
-    return 'transitive'
+    from matrix_closures import transitive_closure
+    from copy import deepcopy
+    
+    matr_copy = deepcopy(matrix)
+    if transitive_closure(matr_copy) == matrix:
+        return 'transitive'
+    return
 
 
 def is_equivalent(matrix):

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matrix</title>
+    <link href="../static/home.css" type="text/css" rel="stylesheet">
+    {%block content1%}{%endblock%}
+</head>
+<body>
+{%block content2%}{%endblock%}
+<div class="nav">
+    <ul>
+        {% if checked == 'home' %}
+        <li><a href="{{ url_for('home') }}" class="checked"><b>M</b>atrix</a></li>
+        {% else %}
+        <li><a href="{{ url_for('home') }}"><b>M</b>atrix</a></li>
+        {% endif %}
+        {% if checked == 'type' %}
+        <li><a href="{{ url_for('m_type') }}" class = "checked">Type</a></li>
+        {% else %}
+        <li><a href="{{ url_for('m_type') }}">Type</a></li>
+        {% endif %}
+        <li class="dropdown">
+            <a href="#" class="dropbtn">Closures</a>
+            <div class="dropdown-content">
+                <a href="{{ url_for('m_reflecsive') }}">Reflexive</a>
+                <a href="{{ url_for('m_symmetric') }}">Symmetric</a>
+                <a href="{{ url_for('m_transitive') }}">Transitive</a>
+                <a href="{{ url_for('m_equivalent') }}">Equivalent</a>
+            </div>
+         </li>
+        <li><a href="{{ url_for('m_multiplication') }}">Multiplication</a></li>
+    </ul>
+</div>
+<div class="main">
+   {% block content3 %}{% endblock %}
+</div>
+</body>
+</html>

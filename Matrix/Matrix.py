@@ -25,13 +25,13 @@ def home():
 @app.route('/type', methods=["GET", "POST"])
 def m_type():
     if request.method == "GET":
-        return render_template('type.html')
+        return render_template('type.html', title = 'Relation type')
     elif request.method == "POST":
         matrix = matrix_result.read_matrix(0)
         input_matrix_table = matrix_result.matrix_table(matrix)
         relations = matrix_relations.find_relations(matrix)
         result_relations = matrix_result.relations_table(relations)
-        return render_template('type.html', inputed_matrix=Markup(input_matrix_table),
+        return render_template('type.html', title = 'Relation type', inputed_matrix=Markup(input_matrix_table),
                                result_relations=Markup(result_relations))
 
 
