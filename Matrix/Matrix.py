@@ -19,78 +19,78 @@ def main():
 
 @app.route('/home')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', checked = 'home')
 
 
 @app.route('/type', methods=["GET", "POST"])
 def m_type():
     if request.method == "GET":
-        return render_template('type.html')
+        return render_template('type.html', title = 'Relation type', checked = 'type')
     elif request.method == "POST":
         matrix = matrix_result.read_matrix(0)
         input_matrix_table = matrix_result.matrix_table(matrix)
         relations = matrix_relations.find_relations(matrix)
         result_relations = matrix_result.relations_table(relations)
-        return render_template('type.html', inputed_matrix=Markup(input_matrix_table),
-                               result_relations=Markup(result_relations))
+        return render_template('type.html', title = 'Relation type', inputed_matrix=Markup(input_matrix_table),
+                               result_relations=Markup(result_relations), checked = 'type')
 
 
 @app.route("/reflexive", methods=["GET", "POST"])
 def m_reflecsive():
     if request.method == "GET":
-        return render_template("closures.html", title="Reflexive closure")
+        return render_template("closures.html", title="Reflexive closure", checked = 'closures')
     elif request.method == "POST":
         matrix = matrix_result.read_matrix(0)
         input_matrix_table = matrix_result.matrix_table(matrix)
         new_matrix = matrix_closures.reflexive_closure(matrix)
         result_matrix = matrix_result.matrix_table(new_matrix)
         return render_template("closures.html", title="Reflexive closure",
-                               inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix))
+                               inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix), checked = 'closures')
 
 
 @app.route("/symmetric", methods=["GET", "POST"])
 def m_symmetric():
     if request.method == "GET":
-        return render_template("closures.html", title="Symmetric closure")
+        return render_template("closures.html", title="Symmetric closure", checked = 'closures')
     elif request.method == "POST":
         matrix = matrix_result.read_matrix(0)
         input_matrix_table = matrix_result.matrix_table(matrix)
         new_matrix = matrix_closures.symmetric_closure(matrix)
         result_matrix = matrix_result.matrix_table(new_matrix)
         return render_template("closures.html", title="Symmetric closure",
-                               inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix))
+                               inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix), checked = 'closures')
 
 
 @app.route("/transitive", methods=["GET", "POST"])
 def m_transitive():
     if request.method == "GET":
-        return render_template("closures.html", title="Transitive closure")
+        return render_template("closures.html", title="Transitive closure", checked = 'closures')
     elif request.method == "POST":
         matrix = matrix_result.read_matrix(0)
         input_matrix_table = matrix_result.matrix_table(matrix)
         new_matrix = matrix_closures.transitive_closure(matrix)
         result_matrix = matrix_result.matrix_table(new_matrix)
         return render_template("closures.html", title="Transitive closure",
-                               inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix))
+                               inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix), checked = 'closures')
 
 
 @app.route("/equivalent", methods=["GET", "POST"])
 def m_equivalent():
     if request.method == "GET":
-        return render_template("closures.html", title="Equivalent closure")
+        return render_template("closures.html", title="Equivalent closure", checked = 'closures')
     elif request.method == "POST":
         matrix = matrix_result.read_matrix(0)
         input_matrix_table = matrix_result.matrix_table(matrix)
         new_matrix = matrix_closures.equivalent_closure(matrix)
         result_matrix = matrix_result.matrix_table(new_matrix)
         return render_template("closures.html", title="Equivalent closure",
-                               inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix))
+                               inputed_matrix=Markup(input_matrix_table), result_matrix=Markup(result_matrix), checked = 'closures')
 
 
 @app.route("/multiplication", methods=["GET", "POST"])
 def m_multiplication():
     if request.method == "GET":
-        return render_template("multiplication.html")
+        return render_template("multiplication.html", checked = 'multiply')
     elif request.method == "POST":
         matrix1 = matrix_result.read_matrix(1)
         matrix2 = matrix_result.read_matrix(2)
@@ -99,7 +99,7 @@ def m_multiplication():
         new_matrix = matrix_multiply.matrix_multiply(matrix1, matrix2)
         result_matrix = matrix_result.matrix_table(new_matrix)
         return render_template("multiplication.html", inputed_matrix1=Markup(input_matrix_table1),
-                               inputed_matrix2=Markup(input_matrix_table2), result_matrix=Markup(result_matrix))
+                               inputed_matrix2=Markup(input_matrix_table2), result_matrix=Markup(result_matrix), checked = 'multiply')
 
 
 if __name__ == '__main__':

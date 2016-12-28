@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Matrix</title>
-    <link href="../static/home.css" type="text/css" rel="stylesheet">
+<!-- extend base layout -->
+{% extends 'base.html' %}
+
+{% block content1 %}
     <script type="text/javascript" src="/static/jquery.js"></script>
     <script type="text/javascript" src="/static/my_multiply.js"></script>
-</head>
-<body>
+{% endblock %}
+{% block content2 %}
 <script>
     $(document).ready(function(){
         create_list()
@@ -17,23 +15,8 @@
         change_matrix_size();
     })
 </script>
-<div class="nav">
-    <ul>
-        <li><a href="{{ url_for('home') }}"><b>M</b>atrix</a></li>
-        <li><a href="{{ url_for('m_type') }}">Type</a></li>
-        <li class="dropdown">
-            <a href="#" class="dropbtn">Closures</a>
-            <div class="dropdown-content">
-                <a href="{{ url_for('m_reflecsive') }}">Reflexive</a>
-                <a href="{{ url_for('m_symmetric') }}">Symmetric</a>
-                <a href="{{ url_for('m_transitive') }}">Transitive</a>
-                <a href="{{ url_for('m_equivalent') }}">Equivalent</a>
-            </div>
-         </li>
-        <li><a href="{{ url_for('m_multiplication') }}" class="checked">Multiplication</a></li>
-    </ul>
-</div>
-<div class="main">
+{% endblock %}
+{% block content3 %}
     <h2>Matrix product</h2>
     {% if not result_matrix %}
     <form method = "POST">
@@ -51,9 +34,9 @@
     {% else %}
         <table>
         <tr>
-            <th width="300px">Your first matrix:</th>
-            <th width="300px">Your second matrix:</th>
-            <th width="300px">Result:</th>
+            <th width="300px">Your first matrix</th>
+            <th width="300px">Your second matrix</th>
+            <th width="300px">Result</th>
         </tr>
         <tr>
             <td>{{ inputed_matrix1 }}</td>
@@ -62,6 +45,4 @@
         </tr>
         </table>
     {% endif %}
-</div>
-</body>
-</html>
+{% endblock %}

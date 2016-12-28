@@ -21,7 +21,11 @@
         <li><a href="{{ url_for('m_type') }}">Type</a></li>
         {% endif %}
         <li class="dropdown">
+            {% if checked == 'closures' %}
+            <a href="#" class="dropbtn, checked">Closures</a>
+            {% else %}
             <a href="#" class="dropbtn">Closures</a>
+            {% endif %}
             <div class="dropdown-content">
                 <a href="{{ url_for('m_reflecsive') }}">Reflexive</a>
                 <a href="{{ url_for('m_symmetric') }}">Symmetric</a>
@@ -29,7 +33,11 @@
                 <a href="{{ url_for('m_equivalent') }}">Equivalent</a>
             </div>
          </li>
+         {% if checked == 'multiply' %}
+        <li><a href="{{ url_for('m_multiplication') }}"  class = "checked">Multiplication</a></li>
+        {% else %}
         <li><a href="{{ url_for('m_multiplication') }}">Multiplication</a></li>
+        {% endif %}
     </ul>
 </div>
 <div class="main">
