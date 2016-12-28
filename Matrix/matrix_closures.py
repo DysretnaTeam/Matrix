@@ -83,7 +83,7 @@ def equivalent_closure(matrix):
             matrix = transitive_closure(matrix)
 
         if i == 10000:
-            return ["Sorry, it's impossible to make realation of equivalence"]
+            return [["Sorry, it's impossible to make relation of equivalence :("]]
 
         i += 1
 
